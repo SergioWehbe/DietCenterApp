@@ -1,0 +1,10 @@
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.exe.config
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.exe
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.pdb
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.Main.resources
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.Properties.Resources.resources
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.UCLogin.resources
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.GenerateResource.cache
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.CoreCompileInputs.cache
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.exe
+C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.pdb
