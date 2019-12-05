@@ -1,7 +1,8 @@
 # DietCenterApp
 ## Setup
 
-**Cloning**
+### Cloning
+
 Donwload Repo as Zip or Clone it in Visual Studio using NuGet Package Manager Console with the command
 ```
 git clone https://github.com/Ser5io/DietCenterApp.git
