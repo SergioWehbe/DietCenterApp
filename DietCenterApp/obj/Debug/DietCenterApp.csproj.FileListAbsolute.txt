@@ -8,3 +8,14 @@ C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterAp
 C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.CoreCompileInputs.cache
 C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.exe
 C:\Users\Sergio Wehbe\Desktop\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.pdb
+D:\SERG\Github\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.exe.config
+D:\SERG\Github\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.exe
+D:\SERG\Github\DietCenterApp\DietCenterApp\bin\Debug\DietCenterApp.pdb
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csprojAssemblyReference.cache
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.Main.resources
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.Properties.Resources.resources
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.UCLogin.resources
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.GenerateResource.cache
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.CoreCompileInputs.cache
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.exe
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.pdb
