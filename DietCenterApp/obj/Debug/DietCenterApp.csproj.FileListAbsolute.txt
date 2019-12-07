@@ -19,3 +19,7 @@ D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.Genera
 D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.CoreCompileInputs.cache
 D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.exe
 D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.pdb
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.UCRecipes.resources
+D:\SERG\Github\DietCenterApp\DietCenterApp\bin\Debug\Newtonsoft.Json.dll
+D:\SERG\Github\DietCenterApp\DietCenterApp\bin\Debug\Newtonsoft.Json.xml
+D:\SERG\Github\DietCenterApp\DietCenterApp\obj\Debug\DietCenterApp.csproj.CopyComplete

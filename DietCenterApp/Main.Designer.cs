@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ucLogin1 = new DietCenterApp.UCLogin();
+            this.ucRecipes1 = new DietCenterApp.UCRecipes();
             this.SuspendLayout();
             // 
             // ucLogin1
@@ -38,11 +39,19 @@
             this.ucLogin1.Size = new System.Drawing.Size(984, 562);
             this.ucLogin1.TabIndex = 0;
             // 
+            // ucRecipes1
+            // 
+            this.ucRecipes1.Location = new System.Drawing.Point(0, 0);
+            this.ucRecipes1.Name = "ucRecipes1";
+            this.ucRecipes1.Size = new System.Drawing.Size(984, 562);
+            this.ucRecipes1.TabIndex = 1;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.ucRecipes1);
             this.Controls.Add(this.ucLogin1);
             this.Name = "Main";
             this.Text = "Diet Center";
@@ -53,6 +62,7 @@
         #endregion
 
         private UCLogin ucLogin1;
+        private UCRecipes ucRecipes1;
     }
 }
 
