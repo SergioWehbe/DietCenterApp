@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DietCenterApp.Repositories;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DietCenterApp
@@ -20,7 +22,32 @@ namespace DietCenterApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lezim na3moul l Login ba2a, ma fina netreka hek");
+            try
+            {
+                Dictionary<string, string> variables = new Dictionary<string, string>();
+                variables.Add("username", tbUsername.Text);
+                variables.Add("password", tbPassword.Text);
+                TokenGroup tokenGroup = (TokenGroup)RepoLogin.Login(variables);
+                UserSession.AccessToken = tokenGroup.access_token;
+                UserSession.RefreshToken = tokenGroup.refresh_token;
+                MessageBox.Show("This is the Access Token: " + UserSession.AccessToken);
+                MessageBox.Show("This is the Refresh Token: " + UserSession.RefreshToken);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("The remote server returned an error: (400) Bad Request."))
+                {
+                    MessageBox.Show("Invalid username or Password");
+                }
+                else if (ex.Message.Contains("Unable to connect to the remote server"))
+                {
+                    MessageBox.Show("Could not connect to server, check your internet connection");
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
         }
     }
 }

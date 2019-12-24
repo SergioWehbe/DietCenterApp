@@ -15,6 +15,7 @@ namespace DietCenterApp
         public Main()
         {
             InitializeComponent();
+            ucLogin1.BringToFront();
         }
     }
 }
