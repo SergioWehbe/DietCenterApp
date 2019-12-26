@@ -41,14 +41,7 @@ namespace DietCenterApp
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Unable to connect to the remote server"))
-                {
-                    MessageBox.Show("Could not connect to server, check your internet connection");
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
+                ExceptionHandling(ex);
             }
         }
 
@@ -76,14 +69,7 @@ namespace DietCenterApp
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Unable to connect to the remote server"))
-                {
-                    MessageBox.Show("Could not connect to server, check your internet connection");
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
+                ExceptionHandling(ex);
             }
         }
 
@@ -102,7 +88,7 @@ namespace DietCenterApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                ExceptionHandling(ex);
             }
         }
 
@@ -174,7 +160,7 @@ namespace DietCenterApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error, better tell Sergio about it :P");
+                ExceptionHandling(ex);
             }
         }
 
@@ -188,7 +174,24 @@ namespace DietCenterApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error, better tell Sergio about it :P");
+                ExceptionHandling(ex);
+            }
+        }
+
+        //Function to handle the Exception in one place instead of handling each function's exceptions
+        private void ExceptionHandling(Exception ex)
+        {
+            if (ex.Message.Contains("Unable to connect to the remote server"))
+            {
+                MessageBox.Show("Could not connect to server, check your internet connection");
+            }
+            else if (ex.Message.Contains("The request was aborted: The connection was closed unexpectedly."))
+            {
+                MessageBox.Show("Could not connect to Database on the server, please contact your Administrator", "Error");
+            }
+            else
+            {
+                MessageBox.Show(ex.Message, "Error");
             }
         }
     }
