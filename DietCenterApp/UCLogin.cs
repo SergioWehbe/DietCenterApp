@@ -28,25 +28,31 @@ namespace DietCenterApp
                 variables.Add("username", tbUsername.Text);
                 variables.Add("password", tbPassword.Text);
                 TokenGroup tokenGroup = (TokenGroup)RepoLogin.Login(variables);
+
+                //On Successful Login, save access token and open UserControls
                 UserSession.AccessToken = tokenGroup.access_token;
                 UserSession.RefreshToken = tokenGroup.refresh_token;
-                MessageBox.Show("This is the Access Token: " + UserSession.AccessToken);
-                MessageBox.Show("This is the Refresh Token: " + UserSession.RefreshToken);
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("The remote server returned an error: (400) Bad Request."))
-                {
-                    MessageBox.Show("Invalid username or Password");
-                }
-                else if (ex.Message.Contains("Unable to connect to the remote server"))
-                {
-                    MessageBox.Show("Could not connect to server, check your internet connection");
-                }
-                else
-                {
-                    MessageBox.Show(ex.Message, "Error");
-                }
+                ExceptionHandling(ex);
+            }
+        }
+
+        //Function to handle the Exception in one place instead of handling each function's exceptions
+        private void ExceptionHandling(Exception ex)
+        {
+            if (ex.Message.Contains("The remote server returned an error: (400) Bad Request."))
+            {
+                MessageBox.Show("Invalid username or Password");
+            }
+            else if (ex.Message.Contains("Unable to connect to the remote server"))
+            {
+                MessageBox.Show("Could not connect to server, check your internet connection");
+            }
+            else
+            {
+                MessageBox.Show(ex.Message, "Error");
             }
         }
     }

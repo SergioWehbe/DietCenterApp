@@ -15,7 +15,26 @@ namespace DietCenterApp
         public Main()
         {
             InitializeComponent();
-            ucLogin1.BringToFront();
+        }
+
+        private void ucLogin1_ValidLogin()
+        {
+            try
+            {
+                UCRecipes ucRecipes = new UCRecipes();
+                this.ucLogin1.Hide();
+                this.Controls.Add(ucRecipes);
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex);
+            }
+        }
+
+        //Function to handle the Exception in one place instead of handling each function's exceptions
+        private void ExceptionHandling(Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Error");
         }
     }
 }
