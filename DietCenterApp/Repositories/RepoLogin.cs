@@ -7,14 +7,14 @@ namespace DietCenterApp.Repositories
     {
         static TokenGroup jsonObject;
 
-        public static object Login(Dictionary<string, string> variables)
+        public static TokenGroup Login(Dictionary<string, string> variables)
         {
-            return jsonObject = JsonConvert.DeserializeObject<TokenGroup>(HttpRequests.Post("login", variables));
+            return jsonObject = JsonConvert.DeserializeObject<TokenGroup>(HttpRequests.Send("login", variables, "Post"));
         }
 
-        public static object Logout(Dictionary<string, string> variables)
+        public static TokenGroup Logout(Dictionary<string, string> variables)
         {
-            return jsonObject = JsonConvert.DeserializeObject<TokenGroup>(HttpRequests.Post("logout",variables));
+            return jsonObject = JsonConvert.DeserializeObject<TokenGroup>(HttpRequests.Send("logout",variables, "Post"));
         }
     }
 }

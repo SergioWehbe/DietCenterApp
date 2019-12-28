@@ -9,6 +9,6 @@ namespace DietCenterApp
 {
     static class GlobalVariables
     {
-        public static Color PrimaryColor { get; set; }
+        public static KnownColor PrimaryColor { get; set; }
     }
 }

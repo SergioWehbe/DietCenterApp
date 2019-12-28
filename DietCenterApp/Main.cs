@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DietCenterApp.UserControls.Chef;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,13 +18,14 @@ namespace DietCenterApp
             InitializeComponent();
         }
 
-        private void ucLogin1_ValidLogin()
+        private void ucLogin1_ValidLogin(object sender, EventArgs e)
         {
             try
             {
-                UCRecipes ucRecipes = new UCRecipes();
-                this.ucLogin1.Hide();
-                this.Controls.Add(ucRecipes);
+                Dashboard dashboard = new Dashboard();
+                dashboard.Closed += (s, args) => this.Close();
+                dashboard.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
