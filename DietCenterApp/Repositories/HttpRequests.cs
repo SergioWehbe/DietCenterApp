@@ -24,16 +24,17 @@ namespace DietCenterApp
             return new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
 
-        public static string Post(string api, Dictionary<string,string> variables, bool fullURL = false)
+        public static string Send(string api, Dictionary<string,string> variables, string requestMethod, bool fullURL = false)
         {
             //Create HttpWebRequest with given api
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(fullURL? api : @API_BASE+api);
+            request.Headers.Add("Authorization", UserSession.TokenType + " " + UserSession.AccessToken);
 
             //Fill postData of the Request
             string postData = "";
             foreach (var item in variables)
             {
-                postData += "&" + item.Key + "=" + Uri.EscapeDataString(item.Value);
+                postData += "&" + item.Key + "=" + UriEscapeDataString(item.Value);
             }
             //Remove first "&"
             postData = postData.Substring(1);
@@ -41,7 +42,7 @@ namespace DietCenterApp
             var data = Encoding.ASCII.GetBytes(postData);
 
             //Set request attributes
-            request.Method = "POST";
+            request.Method = requestMethod;
             request.ContentType = "application/x-www-form-urlencoded";
             request.ContentLength = data.Length;
 
@@ -56,6 +57,27 @@ namespace DietCenterApp
 
             //Return Response as a string
             return new StreamReader(response.GetResponseStream()).ReadToEnd();
+        }
+
+        private static string UriEscapeDataString(string value)
+        {
+            int limit = 2000;
+
+            string uri = "";
+            int loops = value.Length / limit;
+
+            for (int i = 0; i <= loops; i++)
+            {
+                if (i < loops)
+                {
+                    uri += Uri.EscapeDataString(value.Substring(limit * i, limit));
+                }
+                else
+                {
+                    uri += Uri.EscapeDataString(value.Substring(limit * i));
+                }
+            }
+            return uri;
         }
     }
 }

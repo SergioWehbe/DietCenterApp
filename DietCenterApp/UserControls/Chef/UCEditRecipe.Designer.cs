@@ -1,4 +1,4 @@
-﻿namespace DietCenterApp
+﻿namespace DietCenterApp.UserControls.Chef
 {
     partial class UCEditRecipe
     {
@@ -39,7 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbDecription = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecipe)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRemoveImage
@@ -56,6 +60,7 @@
             this.btnRemoveImage.Text = "Remove Image";
             this.btnRemoveImage.UseVisualStyleBackColor = false;
             this.btnRemoveImage.Visible = false;
+            this.btnRemoveImage.Click += new System.EventHandler(this.btnRemoveImage_Click);
             // 
             // btnCancel
             // 
@@ -103,6 +108,7 @@
             this.btnChangeImage.Text = "Change Image";
             this.btnChangeImage.UseVisualStyleBackColor = false;
             this.btnChangeImage.Visible = false;
+            this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click);
             // 
             // btnEdit
             // 
@@ -123,7 +129,7 @@
             // 
             this.tbName.Enabled = false;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(579, 125);
+            this.tbName.Location = new System.Drawing.Point(579, 183);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(384, 29);
             this.tbName.TabIndex = 25;
@@ -132,7 +138,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(575, 76);
+            this.lblName.Location = new System.Drawing.Point(575, 134);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(61, 24);
             this.lblName.TabIndex = 24;
@@ -141,7 +147,7 @@
             // pbRecipe
             // 
             this.pbRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbRecipe.Location = new System.Drawing.Point(13, 3);
+            this.pbRecipe.Location = new System.Drawing.Point(0, 0);
             this.pbRecipe.Name = "pbRecipe";
             this.pbRecipe.Size = new System.Drawing.Size(550, 510);
             this.pbRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -170,10 +176,49 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Controls.Add(this.tbPrice);
+            this.panel1.Controls.Add(this.tbName);
+            this.panel1.Controls.Add(this.lblName);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 562);
+            this.panel1.Size = new System.Drawing.Size(984, 687);
             this.panel1.TabIndex = 33;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Brown;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack.Location = new System.Drawing.Point(742, 17);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(100, 30);
+            this.btnBack.TabIndex = 34;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(575, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Price";
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.Enabled = false;
+            this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrice.Location = new System.Drawing.Point(579, 90);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(384, 29);
+            this.tbPrice.TabIndex = 44;
             // 
             // UCEditRecipe
             // 
@@ -186,13 +231,13 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnChangeImage);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lblName);
             this.Controls.Add(this.pbRecipe);
             this.Controls.Add(this.panel1);
             this.Name = "UCEditRecipe";
-            this.Size = new System.Drawing.Size(984, 562);
+            this.Size = new System.Drawing.Size(984, 687);
             ((System.ComponentModel.ISupportInitialize)(this.pbRecipe)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +256,8 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox tbDecription;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Button btnBack;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox tbPrice;
     }
 }

@@ -4,31 +4,30 @@ using System.Data;
 using System.Windows.Forms;
 using DietCenterApp.Repositories;
 
-namespace DietCenterApp
+namespace DietCenterApp.UserControls.Chef
 {
     public partial class UCRecipes : UserControl
     {
         //Class variables
+        RecipeGroup jsonObject;
+        List<RecipeGroup.Data> recipes;
+        DataTable recipesDT;
         int SelectedRowIndex;
 
         public UCRecipes()
         {
             InitializeComponent();
-            FillDGVRecipes();
+            ucAddRecipe1.SendToBack();
+            ucEditRecipe1.SendToBack();
+            GetRecipes();
         }
 
-
-        //Global Variables
-        RecipeGroup jsonObject;
-        List<RecipeGroup.Data> recipes;
-        DataTable recipesDT;
-
-        private void FillDGVRecipes()
+        private void GetRecipes()
         {
             try
             {
                 //Get JsonObject from Api
-                jsonObject = (RecipeGroup)RepoRecipe.GetAllRecipes();
+                jsonObject = RepoRecipe.GetAllRecipes();
 
                 //Save Recipes
                 recipes = jsonObject.data;
@@ -38,6 +37,7 @@ namespace DietCenterApp
 
                 //Set id column visibility false
                 dgvRecipes.Columns["id"].Visible = false;
+                dgvRecipes.Columns["image"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -53,16 +53,13 @@ namespace DietCenterApp
                 if (jsonObject.links.next == null) return;
 
                 //Get JsonObject from Api
-                jsonObject = (RecipeGroup)RepoRecipe.GetAllRecipesNextPage();
+                jsonObject = RepoRecipe.GetAllRecipesNextPage();
 
                 //Convert List recipes in jsonObject to DataTable
                 DataTable newRecipes = RecipeGroup.ConvertDataIntoDataTable(jsonObject.data);
 
                 //Add new recipes to DataTable
-                foreach (var obj in newRecipes.Rows)
-                {
-                    recipesDT.Rows.Add(obj);
-                }
+                recipesDT.Merge(newRecipes);
 
                 //Set new DataTable as Data Grid View DataSource
                 dgvRecipes.DataSource = recipesDT;
@@ -99,28 +96,34 @@ namespace DietCenterApp
             ucEditRecipe1.SelectedRowID = Int16.Parse(dgvRecipes.Rows[SelectedRowIndex].Cells["id"].Value.ToString());
             ucEditRecipe1.tbName.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value.ToString();
             ucEditRecipe1.tbDecription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
-            //ucEditRecipe1.ImageURL = ucEditRecipe1.pbRecipe.ImageLocation = dgvRecipes.Rows[SelectedRowIndex].Cells["ImageURL"].Value.ToString();   
+            ucEditRecipe1.tbPrice.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value.ToString();
+            ucEditRecipe1.base64Image = dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value.ToString();
+            ucEditRecipe1.pbRecipe.Image = ucEditRecipe1.base64Image == "" ? null : Conversion.Base64ToImage(ucEditRecipe1.base64Image);
 
             //Disbale editing in ucEditRecipe1
-            UCSelectedRecipe1_DisableEditing();
+            UCEditRecipe1_DisableEditing();
 
-            //Set uc to visible and bring to front
-            ucEditRecipe1.Visible = true;
+            //Bring ucEdit to front
             ucEditRecipe1.BringToFront();
         }
 
         //UCSelectedRecipe disable editing mode, get back to the default view with editing disbaled
-        private void UCSelectedRecipe1_DisableEditing()
+        private void UCEditRecipe1_DisableEditing()
         {
             //Disable editable fields
             ucEditRecipe1.tbName.Enabled = false;
             ucEditRecipe1.tbDecription.Enabled = false;
+            ucEditRecipe1.tbPrice.Enabled = false;
+
+            //Show Edit and Back buttons
+            ucEditRecipe1.btnEdit.Show();
+            ucEditRecipe1.btnBack.Show();
 
             //Hide editing buttons
-            ucEditRecipe1.btnCancel.Visible = false;
-            ucEditRecipe1.btnSave.Visible = false;
-            ucEditRecipe1.btnChangeImage.Visible = false;
-            ucEditRecipe1.btnRemoveImage.Visible = false;
+            ucEditRecipe1.btnCancel.Hide();
+            ucEditRecipe1.btnSave.Hide();
+            ucEditRecipe1.btnChangeImage.Hide();
+            ucEditRecipe1.btnRemoveImage.Hide();
         }
 
         private void tbRecipeSearch_TextChanged(object sender, EventArgs e)
@@ -148,15 +151,21 @@ namespace DietCenterApp
         }
 
         //Event Saved Recipe
-        private void ucEditRecipe1e1_SavedRecipe(object sender, EventArgs e)
+        private void UCEditRecipe1_SavedRecipe(object sender, EventArgs e)
         {
             try
             {
-                //Return to disabled editing mode (default view)
-                UCSelectedRecipe1_DisableEditing();
+                //Update recipe in dgvRecipes
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value = ucEditRecipe1.tbName.Text;
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = ucEditRecipe1.tbDecription.Text;
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value = ucEditRecipe1.tbPrice.Text;
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value = ucEditRecipe1.base64Image;
 
-                //Refresh recipes in the background
-                //LoadRecipes();
+                //Return to disabled editing mode (default view)
+                UCEditRecipe1_DisableEditing();
+
+                //Bring ucEdit to front
+                ucEditRecipe1.SendToBack();
             }
             catch (Exception ex)
             {
@@ -165,7 +174,7 @@ namespace DietCenterApp
         }
 
         //Event Canceled Recipe
-        private void ucEditRecipe11_CanceledRecipe(object sender, EventArgs e)
+        private void UCEditRecipe1_CanceledRecipe(object sender, EventArgs e)
         {
             try
             {
@@ -175,6 +184,47 @@ namespace DietCenterApp
             catch (Exception ex)
             {
                 ExceptionHandling(ex);
+            }
+        }
+
+        //Event Canceled Recipe
+        private void UCAddRecipe1_AddedRecipe(object sender, EventArgs e)
+        {
+            try
+            {
+                //Refresh Recipes Grid
+                GetRecipes();
+
+                //Send ucAdd to back and clear fields
+                ucAddRecipe1.SendToBack();
+                ucAddRecipe1.tbPrice.Clear();
+                ucAddRecipe1.tbName.Clear();
+                ucAddRecipe1.tbDecription.Clear();
+                ucAddRecipe1.pbRecipe.Image = null;
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ucAddRecipe1.BringToFront();
+        }
+
+        //Event Back To Recipes
+        private void OnBackToRecipes(object sender, EventArgs e)
+        {
+            try
+            {
+                ucAddRecipe1.SendToBack();
+                ucEditRecipe1.SendToBack();
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex);
+
             }
         }
 

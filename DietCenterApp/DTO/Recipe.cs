@@ -8,6 +8,7 @@ namespace DietCenterApp
         public int id;
         public string name;
         public string description;
+        public string price;
         public string image;
     }
 }
