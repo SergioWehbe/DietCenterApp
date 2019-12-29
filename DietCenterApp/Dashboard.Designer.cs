@@ -279,7 +279,7 @@
             this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button2.Size = new System.Drawing.Size(250, 40);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Check Recipe";
+            this.button2.Text = "Check Recipes";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
