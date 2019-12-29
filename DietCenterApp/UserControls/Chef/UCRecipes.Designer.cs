@@ -50,6 +50,7 @@
             this.dgvRecipes.Size = new System.Drawing.Size(928, 406);
             this.dgvRecipes.TabIndex = 2;
             this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
+            this.dgvRecipes.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRecipes_UserDeletingRow);
             // 
             // btnNext
             // 
@@ -106,8 +107,8 @@
             this.ucEditRecipe1.Name = "ucEditRecipe1";
             this.ucEditRecipe1.Size = new System.Drawing.Size(984, 687);
             this.ucEditRecipe1.TabIndex = 4;
-            this.ucEditRecipe1.SavedRecipe += new System.EventHandler(this.UCEditRecipe1_SavedRecipe);
             this.ucEditRecipe1.CanceledRecipe += new System.EventHandler(this.UCEditRecipe1_CanceledRecipe);
+            this.ucEditRecipe1.SavedRecipe += new System.EventHandler(this.UCEditRecipe1_SavedRecipe);
             this.ucEditRecipe1.BackToRecipesPressed += new System.EventHandler(this.OnBackToRecipes);
             // 
             // ucAddRecipe1

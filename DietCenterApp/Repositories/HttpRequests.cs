@@ -37,7 +37,7 @@ namespace DietCenterApp
                 postData += "&" + item.Key + "=" + UriEscapeDataString(item.Value);
             }
             //Remove first "&"
-            postData = postData.Substring(1);
+            postData = postData.Length>0? postData.Substring(1) : "";
             //Encode postData string as bytes
             var data = Encoding.ASCII.GetBytes(postData);
 
