@@ -52,10 +52,10 @@ namespace DietCenterApp.Repositories
         /// </summary>
         /// <param name="recipe">Recipe to be Deleted</param>
         /// <returns>Response from the server</returns>
-        public static string DeleteRecipe(Recipe recipe)
+        public static string DeleteRecipe(int recipeID)
         {
             //Return Response
-            return HttpRequests.Send("recipe/" + recipe.id, RecipetoDictionary(recipe), "Delete");
+            return HttpRequests.Send("recipe/" + recipeID, new Dictionary<string, string>() , "Delete");
         }
 
         /// <summary>

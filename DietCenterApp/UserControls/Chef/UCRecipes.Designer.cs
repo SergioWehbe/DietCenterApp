@@ -52,6 +52,7 @@
             this.dgvRecipes.Size = new System.Drawing.Size(526, 500);
             this.dgvRecipes.TabIndex = 2;
             this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
+            this.dgvRecipes.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRecipes_UserDeletingRow);
             // 
             // btnNext
             // 
