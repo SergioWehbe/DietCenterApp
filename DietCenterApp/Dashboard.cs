@@ -1,4 +1,5 @@
 ﻿using DietCenterApp.UserControls.Chef;
+using DietCenterApp.UserControls.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace DietCenterApp
         //Variables
         Recipes recipes;
         AddRecipe addRecipe;
+        AddEmployee addEmployee;
         public Dashboard()
         {
             InitializeComponent();
@@ -84,7 +86,8 @@ namespace DietCenterApp
 
         private void button7_Click(object sender, EventArgs e)
         {
-           
+            if (addEmployee == null) addEmployee = new AddEmployee();
+            openChildForm(addEmployee);
             hideSubMenu();
         }
 
