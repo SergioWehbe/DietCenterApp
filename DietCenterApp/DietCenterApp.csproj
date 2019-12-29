@@ -59,6 +59,24 @@
     <Compile Include="DTO\TokenGroup.cs" />
     <Compile Include="DTO\Recipe.cs" />
     <Compile Include="Repositories\RepoLogin.cs" />
+    <Compile Include="UserControls\Chef\AddRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Chef\AddRecipe.Designer.cs">
+      <DependentUpon>AddRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Chef\EditRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Chef\EditRecipe.Designer.cs">
+      <DependentUpon>EditRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Chef\Recipes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Chef\Recipes.Designer.cs">
+      <DependentUpon>Recipes.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Chef\UCAddRecipe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +147,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\Chef\AddRecipe.resx">
+      <DependentUpon>AddRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Chef\EditRecipe.resx">
+      <DependentUpon>EditRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Chef\Recipes.resx">
+      <DependentUpon>Recipes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Chef\UCAddRecipe.resx">
       <DependentUpon>UCAddRecipe.cs</DependentUpon>
     </EmbeddedResource>

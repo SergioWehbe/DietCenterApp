@@ -15,7 +15,7 @@ namespace DietCenterApp
             InitializeComponent();
 
             //AutoLogin
-            tbUsername.Text = "sergiowehbe@gmail.com";
+            tbUsername.Text = "rbeahan@example.org";
             tbPassword.Text = "secret";
         }
 
@@ -75,5 +75,7 @@ namespace DietCenterApp
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        
     }
 }

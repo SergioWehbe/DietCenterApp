@@ -33,19 +33,23 @@
             // 
             // ucLogin1
             // 
-            this.ucLogin1.Location = new System.Drawing.Point(0, 50);
+            this.ucLogin1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.ucLogin1.Location = new System.Drawing.Point(-2, 0);
+            this.ucLogin1.Margin = new System.Windows.Forms.Padding(5);
             this.ucLogin1.Name = "ucLogin1";
-            this.ucLogin1.Size = new System.Drawing.Size(984, 687);
+            this.ucLogin1.Size = new System.Drawing.Size(357, 537);
             this.ucLogin1.TabIndex = 0;
             this.ucLogin1.ValidLogin += new System.EventHandler(this.ucLogin1_ValidLogin);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(351, 537);
             this.Controls.Add(this.ucLogin1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Diet Center";
