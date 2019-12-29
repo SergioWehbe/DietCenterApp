@@ -45,18 +45,21 @@
             this.dgvRecipes.AllowUserToOrderColumns = true;
             this.dgvRecipes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipes.Location = new System.Drawing.Point(29, 136);
+            this.dgvRecipes.Location = new System.Drawing.Point(67, 167);
+            this.dgvRecipes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRecipes.Name = "dgvRecipes";
-            this.dgvRecipes.Size = new System.Drawing.Size(928, 406);
+            this.dgvRecipes.RowHeadersWidth = 51;
+            this.dgvRecipes.Size = new System.Drawing.Size(526, 500);
             this.dgvRecipes.TabIndex = 2;
             this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
             this.dgvRecipes.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRecipes_UserDeletingRow);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(864, 107);
+            this.btnNext.Location = new System.Drawing.Point(432, 131);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Size = new System.Drawing.Size(117, 28);
             this.btnNext.TabIndex = 2;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -65,25 +68,28 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(26, 90);
+            this.lblSearch.Location = new System.Drawing.Point(35, 111);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(41, 13);
+            this.lblSearch.Size = new System.Drawing.Size(53, 17);
             this.lblSearch.TabIndex = 1;
             this.lblSearch.Text = "Search";
             // 
             // tbRecipeSearch
             // 
-            this.tbRecipeSearch.Location = new System.Drawing.Point(99, 87);
+            this.tbRecipeSearch.Location = new System.Drawing.Point(132, 107);
+            this.tbRecipeSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbRecipeSearch.Name = "tbRecipeSearch";
-            this.tbRecipeSearch.Size = new System.Drawing.Size(212, 20);
+            this.tbRecipeSearch.Size = new System.Drawing.Size(298, 22);
             this.tbRecipeSearch.TabIndex = 0;
             this.tbRecipeSearch.TextChanged += new System.EventHandler(this.tbRecipeSearch_TextChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(825, 34);
+            this.btnAdd.Location = new System.Drawing.Point(347, 41);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(114, 30);
+            this.btnAdd.Size = new System.Drawing.Size(169, 37);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add Recipe";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -97,15 +103,17 @@
             this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.dgvRecipes);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 687);
+            this.panel1.Size = new System.Drawing.Size(1312, 846);
             this.panel1.TabIndex = 34;
             // 
             // ucEditRecipe1
             // 
             this.ucEditRecipe1.Location = new System.Drawing.Point(0, 0);
+            this.ucEditRecipe1.Margin = new System.Windows.Forms.Padding(5);
             this.ucEditRecipe1.Name = "ucEditRecipe1";
-            this.ucEditRecipe1.Size = new System.Drawing.Size(984, 687);
+            this.ucEditRecipe1.Size = new System.Drawing.Size(1312, 846);
             this.ucEditRecipe1.TabIndex = 4;
             this.ucEditRecipe1.CanceledRecipe += new System.EventHandler(this.UCEditRecipe1_CanceledRecipe);
             this.ucEditRecipe1.SavedRecipe += new System.EventHandler(this.UCEditRecipe1_SavedRecipe);
@@ -114,21 +122,23 @@
             // ucAddRecipe1
             // 
             this.ucAddRecipe1.Location = new System.Drawing.Point(0, 0);
+            this.ucAddRecipe1.Margin = new System.Windows.Forms.Padding(5);
             this.ucAddRecipe1.Name = "ucAddRecipe1";
-            this.ucAddRecipe1.Size = new System.Drawing.Size(984, 687);
+            this.ucAddRecipe1.Size = new System.Drawing.Size(1312, 846);
             this.ucAddRecipe1.TabIndex = 3;
             this.ucAddRecipe1.CanceledRecipe += new System.EventHandler(this.OnBackToRecipes);
             this.ucAddRecipe1.AddedRecipe += new System.EventHandler(this.UCAddRecipe1_AddedRecipe);
             // 
             // UCRecipes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucEditRecipe1);
             this.Controls.Add(this.ucAddRecipe1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCRecipes";
-            this.Size = new System.Drawing.Size(984, 687);
+            this.Size = new System.Drawing.Size(1312, 846);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

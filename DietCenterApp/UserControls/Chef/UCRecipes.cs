@@ -10,7 +10,7 @@ namespace DietCenterApp.UserControls.Chef
     {
         //Class variables
         RecipeGroup jsonObject;
-        List<RecipeGroup.Data> recipes;
+        List<Recipe> recipes;
         DataTable recipesDT;
         int SelectedRowIndex;
 
