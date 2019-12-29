@@ -5,19 +5,11 @@ namespace DietCenterApp
 {
     public class RecipeGroup
     {
-        public List<Data> data;
+        public List<Recipe> data;
         public Links links;
         public Meta meta;
 
-        public class Data
-        {
-            public int id;
-            public string name;
-            public string description;
-            public string price;
-            public string image;
 
-        }
         public class Links
         {
             public string first;
@@ -36,7 +28,7 @@ namespace DietCenterApp
             public int total;
         }
 
-        public static DataTable ConvertDataIntoDataTable(List<Data> recipes)
+        public static DataTable ConvertDataIntoDataTable(List<Recipe> recipes)
         {
             DataTable output = new DataTable();
 

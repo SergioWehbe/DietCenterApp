@@ -16,7 +16,7 @@ namespace DietCenterApp.UserControls.Chef
         //Class variables
         EditRecipe editRecipe;
         RecipeGroup jsonObject;
-        List<RecipeGroup.Data> recipes;
+        List<Recipe> recipes;
         DataTable recipesDT;
         int SelectedRowIndex;
 
@@ -109,7 +109,7 @@ namespace DietCenterApp.UserControls.Chef
         private void LoadSelectedRecipe()
         {
             //Set all data to selected recipe
-            editRecipe.SelectedRowID = Int16.Parse(dgvRecipes.Rows[SelectedRowIndex].Cells["id"].Value.ToString());
+            editRecipe.SelectedRowID = SelectedRowIndex;
             editRecipe.tbName.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value.ToString();
             editRecipe.tbDecription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
             editRecipe.tbPrice.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value.ToString();
