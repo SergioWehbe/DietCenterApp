@@ -1,6 +1,6 @@
-﻿namespace DietCenterApp.UserControls.Chef
+﻿namespace DietCenterApp.UserControls.Manager
 {
-    partial class Recipes
+    partial class Employees
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbRecipeSearch = new System.Windows.Forms.TextBox();
+            this.tbEmployeeSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.dgvRecipes = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbRecipeSearch
+            // tbEmployeeSearch
             // 
-            this.tbRecipeSearch.Location = new System.Drawing.Point(80, 91);
-            this.tbRecipeSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.tbRecipeSearch.Name = "tbRecipeSearch";
-            this.tbRecipeSearch.Size = new System.Drawing.Size(298, 22);
-            this.tbRecipeSearch.TabIndex = 3;
+            this.tbEmployeeSearch.Location = new System.Drawing.Point(80, 91);
+            this.tbEmployeeSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmployeeSearch.Name = "tbEmployeeSearch";
+            this.tbEmployeeSearch.Size = new System.Drawing.Size(298, 22);
+            this.tbEmployeeSearch.TabIndex = 8;
             // 
             // lblSearch
             // 
@@ -56,7 +54,7 @@
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(56, 18);
-            this.lblSearch.TabIndex = 4;
+            this.lblSearch.TabIndex = 9;
             this.lblSearch.Text = "Search";
             // 
             // btnNext
@@ -71,37 +69,25 @@
             this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(117, 28);
-            this.btnNext.TabIndex = 6;
+            this.btnNext.TabIndex = 10;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // dgvRecipes
+            // dgvEmployees
             // 
-            this.dgvRecipes.AllowUserToOrderColumns = true;
-            this.dgvRecipes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvEmployees.AllowUserToOrderColumns = true;
+            this.dgvEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvRecipes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRecipes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dgvRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipes.Location = new System.Drawing.Point(13, 121);
-            this.dgvRecipes.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvRecipes.Name = "dgvRecipes";
-            this.dgvRecipes.RowHeadersWidth = 51;
-            this.dgvRecipes.Size = new System.Drawing.Size(658, 384);
-            this.dgvRecipes.TabIndex = 7;
-            this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 561);
-            this.panel1.TabIndex = 8;
+            this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEmployees.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(13, 121);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.RowHeadersWidth = 51;
+            this.dgvEmployees.Size = new System.Drawing.Size(658, 384);
+            this.dgvEmployees.TabIndex = 11;
             // 
             // label1
             // 
@@ -110,37 +96,36 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(11, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 30);
-            this.label1.TabIndex = 100;
-            this.label1.Text = "> Recipes > CheckRecipes";
+            this.label1.Size = new System.Drawing.Size(354, 30);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "> Employees > CheckEmployees";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Recipes
+            // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(684, 561);
-            this.Controls.Add(this.tbRecipeSearch);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbEmployeeSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.dgvRecipes);
-            this.Controls.Add(this.panel1);
-            this.Name = "Recipes";
-            this.Text = "Recipes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.Controls.Add(this.dgvEmployees);
+            this.Name = "Employees";
+            this.Text = "Employees";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbRecipeSearch;
+
+        private System.Windows.Forms.TextBox tbEmployeeSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.DataGridView dgvRecipes;
-        public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Label label1;
     }
 }

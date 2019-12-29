@@ -1,5 +1,6 @@
 ﻿using DietCenterApp.UserControls.Chef;
 using DietCenterApp.UserControls.Manager;
+using DietCenterApp.UserControls.Dietitian;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,9 @@ namespace DietCenterApp
         Recipes recipes;
         AddRecipe addRecipe;
         AddEmployee addEmployee;
+        Employees employees;
+        AddClient addClient;
+        Clients clients;
         public Dashboard()
         {
             InitializeComponent();
@@ -64,14 +68,7 @@ namespace DietCenterApp
           
             hideSubMenu();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-           
-            hideSubMenu();
-        }
-       
-
+      
         private void btnEmp_Click(object sender, EventArgs e)
         {
             showSubMenu(panelEmpSubMenu);
@@ -80,7 +77,8 @@ namespace DietCenterApp
         // EmployeesSubMenu
         private void button8_Click(object sender, EventArgs e)
         {
-           
+            if (employees == null) employees = new Employees();
+            openChildForm(employees);
             hideSubMenu();
         }
 
@@ -91,19 +89,6 @@ namespace DietCenterApp
             hideSubMenu();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-           
-            hideSubMenu();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            hideSubMenu();
-        }
-       
-
         private void btnClients_Click(object sender, EventArgs e)
         {
             showSubMenu(panelClientsSubMenu);
@@ -111,44 +96,26 @@ namespace DietCenterApp
        // ClientsSubMenu
         private void button13_Click(object sender, EventArgs e)
         {
-           
+
+            if (clients == null) clients = new Clients();
+            openChildForm(clients);
             hideSubMenu();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-           
+
+            if (addClient == null) addClient = new AddClient();
+            openChildForm(addClient);
             hideSubMenu();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            hideSubMenu();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-           
-            hideSubMenu();
-        }
-       
-
-        private void btnEqualizer_Click(object sender, EventArgs e)
-        {
-            
-            hideSubMenu();
-        }
-
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-           
-            hideSubMenu();
-        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //open forms over Main panel 
         private void openChildForm(Form childForm)
         {
             childForm.TopLevel = false;

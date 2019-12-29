@@ -1,6 +1,6 @@
-﻿namespace DietCenterApp.UserControls.Chef
+﻿namespace DietCenterApp.UserControls.Dietitian
 {
-    partial class Recipes
+    partial class Clients
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.tbRecipeSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.dgvRecipes = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(276, 30);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "> Clients > Check Clients";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbRecipeSearch
             // 
-            this.tbRecipeSearch.Location = new System.Drawing.Point(80, 91);
+            this.tbRecipeSearch.Location = new System.Drawing.Point(81, 90);
             this.tbRecipeSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbRecipeSearch.Name = "tbRecipeSearch";
             this.tbRecipeSearch.Size = new System.Drawing.Size(298, 22);
-            this.tbRecipeSearch.TabIndex = 3;
+            this.tbRecipeSearch.TabIndex = 101;
             // 
             // lblSearch
             // 
@@ -52,11 +62,11 @@
             this.lblSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.lblSearch.Font = new System.Drawing.Font("Elephant", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(16, 91);
+            this.lblSearch.Location = new System.Drawing.Point(17, 90);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(56, 18);
-            this.lblSearch.TabIndex = 4;
+            this.lblSearch.TabIndex = 102;
             this.lblSearch.Text = "Search";
             // 
             // btnNext
@@ -67,14 +77,13 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(554, 513);
+            this.btnNext.Location = new System.Drawing.Point(555, 512);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(117, 28);
-            this.btnNext.TabIndex = 6;
+            this.btnNext.TabIndex = 103;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // dgvRecipes
             // 
@@ -85,62 +94,38 @@
             this.dgvRecipes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRecipes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.dgvRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipes.Location = new System.Drawing.Point(13, 121);
+            this.dgvRecipes.Location = new System.Drawing.Point(14, 120);
             this.dgvRecipes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRecipes.Name = "dgvRecipes";
             this.dgvRecipes.RowHeadersWidth = 51;
             this.dgvRecipes.Size = new System.Drawing.Size(658, 384);
-            this.dgvRecipes.TabIndex = 7;
-            this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
+            this.dgvRecipes.TabIndex = 104;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 561);
-            this.panel1.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(11, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 30);
-            this.label1.TabIndex = 100;
-            this.label1.Text = "> Recipes > CheckRecipes";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Recipes
+            // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbRecipeSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dgvRecipes);
-            this.Controls.Add(this.panel1);
-            this.Name = "Recipes";
-            this.Text = "Recipes";
+            this.Name = "Clients";
+            this.Text = "Clients";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbRecipeSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.DataGridView dgvRecipes;
-        public System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
     }
 }
