@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbRecipeSearch = new System.Windows.Forms.TextBox();
+            this.tbClientSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
-            this.dgvRecipes = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
+            this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,13 +49,13 @@
             this.label1.Text = "> Clients > Check Clients";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbRecipeSearch
+            // tbClientSearch
             // 
-            this.tbRecipeSearch.Location = new System.Drawing.Point(81, 90);
-            this.tbRecipeSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.tbRecipeSearch.Name = "tbRecipeSearch";
-            this.tbRecipeSearch.Size = new System.Drawing.Size(298, 22);
-            this.tbRecipeSearch.TabIndex = 101;
+            this.tbClientSearch.Location = new System.Drawing.Point(81, 90);
+            this.tbClientSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.tbClientSearch.Name = "tbClientSearch";
+            this.tbClientSearch.Size = new System.Drawing.Size(298, 22);
+            this.tbClientSearch.TabIndex = 101;
             // 
             // lblSearch
             // 
@@ -85,21 +86,29 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
-            // dgvRecipes
+            // dgvClients
             // 
-            this.dgvRecipes.AllowUserToOrderColumns = true;
-            this.dgvRecipes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvClients.AllowUserToOrderColumns = true;
+            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvRecipes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvRecipes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dgvRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecipes.Location = new System.Drawing.Point(14, 120);
-            this.dgvRecipes.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvRecipes.Name = "dgvRecipes";
-            this.dgvRecipes.RowHeadersWidth = 51;
-            this.dgvRecipes.Size = new System.Drawing.Size(658, 384);
-            this.dgvRecipes.TabIndex = 104;
+            this.dgvClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClients.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClients.Location = new System.Drawing.Point(14, 120);
+            this.dgvClients.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvClients.Name = "dgvClients";
+            this.dgvClients.RowHeadersWidth = 51;
+            this.dgvClients.Size = new System.Drawing.Size(658, 384);
+            this.dgvClients.TabIndex = 104;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(684, 561);
+            this.panel1.TabIndex = 106;
             // 
             // Clients
             // 
@@ -108,13 +117,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(684, 561);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbRecipeSearch);
+            this.Controls.Add(this.tbClientSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.dgvRecipes);
+            this.Controls.Add(this.dgvClients);
+            this.Controls.Add(this.panel1);
             this.Name = "Clients";
             this.Text = "Clients";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,9 +133,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbRecipeSearch;
+        private System.Windows.Forms.TextBox tbClientSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.DataGridView dgvRecipes;
+        private System.Windows.Forms.DataGridView dgvClients;
+        private System.Windows.Forms.Panel panel1;
     }
 }
