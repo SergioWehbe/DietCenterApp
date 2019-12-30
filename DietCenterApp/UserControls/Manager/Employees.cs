@@ -12,9 +12,18 @@ namespace DietCenterApp.UserControls.Manager
 {
     public partial class Employees : Form
     {
-        public Employees()
+        //Class Variables
+        Dashboard parent;
+
+        public Employees(Dashboard parent)
         {
+            this.parent = parent;
             InitializeComponent();
+        }
+
+        public void AddEmployee_AddedEmployee(User user)
+        {
+
         }
     }
 }

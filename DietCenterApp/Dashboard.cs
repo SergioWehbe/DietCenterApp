@@ -16,12 +16,16 @@ namespace DietCenterApp
     public partial class Dashboard : Form
     {
         //Variables
+        //---Recipes---
         Recipes recipes;
         AddRecipe addRecipe;
+        //---Employees---
         AddEmployee addEmployee;
         Employees employees;
+        //---Clients---
         AddClient addClient;
         Clients clients;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -77,14 +81,14 @@ namespace DietCenterApp
         // EmployeesSubMenu
         private void button8_Click(object sender, EventArgs e)
         {
-            if (employees == null) employees = new Employees();
+            if (employees == null) employees = new Employees(this);
             openChildForm(employees);
             hideSubMenu();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (addEmployee == null) addEmployee = new AddEmployee();
+            if (addEmployee == null) addEmployee = new AddEmployee(this);
             openChildForm(addEmployee);
             hideSubMenu();
         }
@@ -97,7 +101,7 @@ namespace DietCenterApp
         private void button13_Click(object sender, EventArgs e)
         {
 
-            if (clients == null) clients = new Clients();
+            if (clients == null) clients = new Clients(this);
             openChildForm(clients);
             hideSubMenu();
         }
@@ -105,7 +109,7 @@ namespace DietCenterApp
         private void button12_Click(object sender, EventArgs e)
         {
 
-            if (addClient == null) addClient = new AddClient();
+            if (addClient == null) addClient = new AddClient(this);
             openChildForm(addClient);
             hideSubMenu();
         }
@@ -127,6 +131,7 @@ namespace DietCenterApp
             childForm.Show();
         }
 
+        //-----Recipes-----
         public void AddRecipe_AddedRecipe(Recipe recipe)
         {
             button2_Click(new object(), EventArgs.Empty);
@@ -134,6 +139,30 @@ namespace DietCenterApp
         }
 
         public void AddRecipe_CanceledRecipe()
+        {
+            button2_Click(new object(), EventArgs.Empty);
+        }
+
+        //-----Employees-----
+        public void AddEmployee_AddedEmployee(User user)
+        {
+            button2_Click(new object(), EventArgs.Empty);
+            employees.AddEmployee_AddedEmployee(user);
+        }
+
+        public void AddEmployee_CanceledEmployee()
+        {
+            button2_Click(new object(), EventArgs.Empty);
+        }
+
+        //-----Clients-----
+        public void AddClient_AddedClient(User user)
+        {
+            button2_Click(new object(), EventArgs.Empty);
+            clients.AddClient_AddedClient(user);
+        }
+
+        public void AddClient_CanceledClient()
         {
             button2_Click(new object(), EventArgs.Empty);
         }

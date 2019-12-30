@@ -12,11 +12,15 @@ namespace DietCenterApp.UserControls.Dietitian
 {
     public partial class AddClient : Form
     {
-        public AddClient()
+        //Class Variables
+        Dashboard parent;
+
+        public AddClient(Dashboard parent)
         {
+            this.parent = parent;
             InitializeComponent();
         }
 
-      
+
     }
 }
