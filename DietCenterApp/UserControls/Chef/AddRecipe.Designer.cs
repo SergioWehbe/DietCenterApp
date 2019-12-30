@@ -43,6 +43,7 @@
             this.btnRemoveImage = new System.Windows.Forms.Button();
             this.pbRecipe = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecipe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,9 +55,10 @@
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(388, 394);
+            this.btnAdd.Location = new System.Drawing.Point(518, 499);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 30);
+            this.btnAdd.Size = new System.Drawing.Size(133, 37);
             this.btnAdd.TabIndex = 51;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -67,10 +69,9 @@
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel3.Location = new System.Drawing.Point(202, 228);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(269, 297);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 138);
+            this.panel3.Size = new System.Drawing.Size(2, 170);
             this.panel3.TabIndex = 64;
             // 
             // panel2
@@ -78,10 +79,9 @@
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel2.Location = new System.Drawing.Point(208, 97);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(277, 135);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 2);
+            this.panel2.Size = new System.Drawing.Size(293, 2);
             this.panel2.TabIndex = 65;
             // 
             // panel1
@@ -89,10 +89,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Location = new System.Drawing.Point(208, 174);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(277, 230);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 2);
+            this.panel1.Size = new System.Drawing.Size(94, 2);
             this.panel1.TabIndex = 63;
             // 
             // label2
@@ -102,9 +101,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(205, 124);
+            this.label2.Location = new System.Drawing.Point(273, 168);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.Size = new System.Drawing.Size(69, 29);
             this.label2.TabIndex = 62;
             this.label2.Text = "Price";
             // 
@@ -115,9 +115,10 @@
             this.tbPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrice.ForeColor = System.Drawing.Color.White;
-            this.tbPrice.Location = new System.Drawing.Point(208, 154);
+            this.tbPrice.Location = new System.Drawing.Point(278, 205);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(70, 22);
+            this.tbPrice.Size = new System.Drawing.Size(94, 27);
             this.tbPrice.TabIndex = 61;
             // 
             // tbName
@@ -127,9 +128,10 @@
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.ForeColor = System.Drawing.Color.White;
-            this.tbName.Location = new System.Drawing.Point(208, 76);
+            this.tbName.Location = new System.Drawing.Point(277, 110);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(220, 22);
+            this.tbName.Size = new System.Drawing.Size(293, 27);
             this.tbName.TabIndex = 58;
             // 
             // lblName
@@ -139,9 +141,10 @@
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(205, 42);
+            this.lblName.Location = new System.Drawing.Point(273, 68);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(61, 24);
+            this.lblName.Size = new System.Drawing.Size(78, 29);
             this.lblName.TabIndex = 57;
             this.lblName.Text = "Name";
             // 
@@ -152,10 +155,11 @@
             this.tbDecription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbDecription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDecription.ForeColor = System.Drawing.Color.White;
-            this.tbDecription.Location = new System.Drawing.Point(208, 228);
+            this.tbDecription.Location = new System.Drawing.Point(278, 297);
+            this.tbDecription.Margin = new System.Windows.Forms.Padding(4);
             this.tbDecription.Multiline = true;
             this.tbDecription.Name = "tbDecription";
-            this.tbDecription.Size = new System.Drawing.Size(280, 138);
+            this.tbDecription.Size = new System.Drawing.Size(374, 170);
             this.tbDecription.TabIndex = 60;
             // 
             // label1
@@ -165,9 +169,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(205, 202);
+            this.label1.Location = new System.Drawing.Point(273, 264);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 24);
+            this.label1.Size = new System.Drawing.Size(135, 29);
             this.label1.TabIndex = 59;
             this.label1.Text = "Description";
             // 
@@ -180,9 +185,10 @@
             this.btnChangeImage.ForeColor = System.Drawing.Color.White;
             this.btnChangeImage.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeImage.Image")));
             this.btnChangeImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnChangeImage.Location = new System.Drawing.Point(10, 208);
+            this.btnChangeImage.Location = new System.Drawing.Point(13, 285);
+            this.btnChangeImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeImage.Name = "btnChangeImage";
-            this.btnChangeImage.Size = new System.Drawing.Size(30, 46);
+            this.btnChangeImage.Size = new System.Drawing.Size(40, 57);
             this.btnChangeImage.TabIndex = 55;
             this.btnChangeImage.UseVisualStyleBackColor = false;
             this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click);
@@ -196,9 +202,10 @@
             this.btnRemoveImage.ForeColor = System.Drawing.Color.Black;
             this.btnRemoveImage.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveImage.Image")));
             this.btnRemoveImage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRemoveImage.Location = new System.Drawing.Point(122, 208);
+            this.btnRemoveImage.Location = new System.Drawing.Point(162, 285);
+            this.btnRemoveImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveImage.Name = "btnRemoveImage";
-            this.btnRemoveImage.Size = new System.Drawing.Size(28, 46);
+            this.btnRemoveImage.Size = new System.Drawing.Size(38, 57);
             this.btnRemoveImage.TabIndex = 54;
             this.btnRemoveImage.UseVisualStyleBackColor = false;
             this.btnRemoveImage.Click += new System.EventHandler(this.btnRemoveImage_Click);
@@ -206,9 +213,10 @@
             // pbRecipe
             // 
             this.pbRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbRecipe.Location = new System.Drawing.Point(10, 32);
+            this.pbRecipe.Location = new System.Drawing.Point(13, 68);
+            this.pbRecipe.Margin = new System.Windows.Forms.Padding(4);
             this.pbRecipe.Name = "pbRecipe";
-            this.pbRecipe.Size = new System.Drawing.Size(141, 170);
+            this.pbRecipe.Size = new System.Drawing.Size(187, 209);
             this.pbRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbRecipe.TabIndex = 56;
             this.pbRecipe.TabStop = false;
@@ -221,20 +229,35 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(283, 394);
+            this.btnCancel.Location = new System.Drawing.Point(377, 499);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 30);
+            this.btnCancel.Size = new System.Drawing.Size(133, 37);
             this.btnCancel.TabIndex = 66;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(11, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(260, 30);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "> Recipes > AddRecipe";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddRecipe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(513, 456);
+            this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -249,6 +272,7 @@
             this.Controls.Add(this.btnRemoveImage);
             this.Controls.Add(this.pbRecipe);
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddRecipe";
             this.Text = "AddRecipe";
             ((System.ComponentModel.ISupportInitialize)(this.pbRecipe)).EndInit();
@@ -272,5 +296,6 @@
         public System.Windows.Forms.Button btnRemoveImage;
         public System.Windows.Forms.PictureBox pbRecipe;
         public System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label3;
     }
 }

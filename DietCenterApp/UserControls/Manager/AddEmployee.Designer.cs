@@ -42,6 +42,7 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPhone
@@ -261,12 +262,25 @@
             this.tbPassword.Size = new System.Drawing.Size(329, 34);
             this.tbPassword.TabIndex = 85;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(11, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(333, 30);
+            this.label1.TabIndex = 100;
+            this.label1.Text = "> Employees > AddEmployees";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblRole);
@@ -304,5 +318,6 @@
         public System.Windows.Forms.Label lblRole;
         public System.Windows.Forms.Label lblPassword;
         public System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Label label1;
     }
 }
