@@ -13,12 +13,13 @@ namespace DietCenterApp.UserControls.Chef
 {
     public partial class AddRecipe : Form
     {
-
-        //Event handlers
-        public event EventHandler CanceledRecipe, AddedRecipe;
-        public AddRecipe()
+        //Class variables
+        Dashboard parent;
+        
+        public AddRecipe(Dashboard parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -48,8 +49,11 @@ namespace DietCenterApp.UserControls.Chef
                     return;
                 }
 
-                //Trigger add recipe event
-                AddedRecipe?.Invoke(this, EventArgs.Empty);
+                //Tell Dashboard about the recipe that was added
+                parent.AddRecipe_AddedRecipe(recipe);
+
+                //Clear All fields
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -61,8 +65,11 @@ namespace DietCenterApp.UserControls.Chef
         {
             try
             {
-                //Trigger cancel recipe event
-                CanceledRecipe?.Invoke(this, EventArgs.Empty);
+                //Tell Dashboard that AddRecipe canceled
+                parent.AddRecipe_CanceledRecipe();
+
+                //Clear All fields
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -105,6 +112,23 @@ namespace DietCenterApp.UserControls.Chef
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             pbRecipe.Image = null;
+        }
+
+        private void ClearFields()
+        {
+            foreach (var field in Controls)
+            {
+                if (field is TextBox)
+                {
+                    var field2 = field as TextBox;
+                    field2.Clear();
+                }
+                else if (field is PictureBox)
+                {
+                    var pb = field as PictureBox;
+                    pb.Image = null;
+                }
+            }
         }
 
 

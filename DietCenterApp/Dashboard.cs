@@ -50,7 +50,7 @@ namespace DietCenterApp
          // RecipeSubMenu
         private void button2_Click(object sender, EventArgs e)
         {
-            if (recipes == null) recipes = new Recipes();
+            if (recipes == null) recipes = new Recipes(this);
             openChildForm(recipes);
             recipes.panel1.Hide();
             hideSubMenu();
@@ -58,7 +58,7 @@ namespace DietCenterApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (addRecipe == null) addRecipe = new AddRecipe();
+            if (addRecipe == null) addRecipe = new AddRecipe(this);
             openChildForm(addRecipe);
             
           
@@ -160,5 +160,15 @@ namespace DietCenterApp
             childForm.Show();
         }
 
+        public void AddRecipe_AddedRecipe(Recipe recipe)
+        {
+            button2_Click(new object(), EventArgs.Empty);
+            recipes.AddRecipe_AddedRecipe(recipe);
+        }
+
+        public void AddRecipe_CanceledRecipe()
+        {
+            button2_Click(new object(), EventArgs.Empty);
+        }
     }
 }

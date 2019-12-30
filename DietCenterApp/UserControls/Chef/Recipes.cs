@@ -14,14 +14,16 @@ namespace DietCenterApp.UserControls.Chef
     public partial class Recipes : Form
     {
         //Class variables
+        Dashboard parent;
         EditRecipe editRecipe;
         RecipeGroup jsonObject;
         List<Recipe> recipes;
         DataTable recipesDT;
         int SelectedRowIndex;
 
-        public Recipes()
+        public Recipes(Dashboard parent)
         {
+            this.parent = parent;
             InitializeComponent();
             GetRecipes();
             InitializeEditRecipe();
@@ -162,11 +164,10 @@ namespace DietCenterApp.UserControls.Chef
         }
 
         //Event Added Recipe
-        private void AddRecipe_AddedRecipe(object sender, EventArgs e)
+        public void AddRecipe_AddedRecipe(Recipe recipe)
         {
             try
             {
-                //Refresh Recipes Grid
                 GetRecipes();
             }
             catch (Exception ex)
@@ -174,6 +175,35 @@ namespace DietCenterApp.UserControls.Chef
                 ExceptionHandling(ex);
             }
         }
+
+        //Delete Recipe
+        private void dgvRecipes_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            try
+            {
+                //Show Message box to confirm the deletion of the selected recipes
+                if (MessageBox.Show("Are you sure you want to delete the selected recipes?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    //If deletion is canceled, exit function
+                    e.Cancel = true;
+                    return;
+                }
+
+                //Delete each selected recipe
+                foreach (DataGridViewRow row in dgvRecipes.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        RepoRecipe.DeleteRecipe(Int16.Parse(row.Cells["id"].Value.ToString()));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex);
+            }
+        }
+
 
         //Function to handle the Exception in one place instead of handling each function's exceptions
         private void ExceptionHandling(Exception ex)

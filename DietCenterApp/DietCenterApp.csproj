@@ -77,35 +77,11 @@
     <Compile Include="UserControls\Chef\Recipes.Designer.cs">
       <DependentUpon>Recipes.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Chef\UCAddRecipe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Chef\UCAddRecipe.Designer.cs">
-      <DependentUpon>UCAddRecipe.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Manager\AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserControls\Manager\AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCAddEmployee.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCAddEmployee.Designer.cs">
-      <DependentUpon>UCAddEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCEditEmployee.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCEditEmployee.Designer.cs">
-      <DependentUpon>UCEditEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCEmployees.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Manager\UCEmployees.Designer.cs">
-      <DependentUpon>UCEmployees.cs</DependentUpon>
     </Compile>
     <Compile Include="UserSession.cs" />
     <Compile Include="GlobalVariables.cs" />
@@ -120,24 +96,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DTO\RecipeGroup.cs" />
     <Compile Include="Repositories\RepoRecipe.cs" />
-    <Compile Include="UserControls\Chef\UCEditRecipe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Chef\UCEditRecipe.Designer.cs">
-      <DependentUpon>UCEditRecipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UCLogin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UCLogin.Designer.cs">
-      <DependentUpon>UCLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Chef\UCRecipes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Chef\UCRecipes.Designer.cs">
-      <DependentUpon>UCRecipes.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,29 +120,8 @@
     <EmbeddedResource Include="UserControls\Chef\Recipes.resx">
       <DependentUpon>Recipes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Chef\UCAddRecipe.resx">
-      <DependentUpon>UCAddRecipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Chef\UCEditRecipe.resx">
-      <DependentUpon>UCEditRecipe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Manager\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Manager\UCAddEmployee.resx">
-      <DependentUpon>UCAddEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Manager\UCEditEmployee.resx">
-      <DependentUpon>UCEditEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Manager\UCEmployees.resx">
-      <DependentUpon>UCEmployees.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UCLogin.resx">
-      <DependentUpon>UCLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Chef\UCRecipes.resx">
-      <DependentUpon>UCRecipes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
