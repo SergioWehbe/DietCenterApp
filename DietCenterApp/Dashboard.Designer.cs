@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.panelClientsSubMenu = new System.Windows.Forms.Panel();
@@ -81,6 +82,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Silver;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(0, 516);
             this.btnExit.Name = "btnExit";
@@ -152,6 +154,7 @@
             this.btnClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClients.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClients.ForeColor = System.Drawing.Color.Silver;
+            this.btnClients.Image = ((System.Drawing.Image)(resources.GetObject("btnClients.Image")));
             this.btnClients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClients.Location = new System.Drawing.Point(0, 337);
             this.btnClients.Name = "btnClients";
@@ -223,6 +226,7 @@
             this.btnEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmp.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmp.ForeColor = System.Drawing.Color.Silver;
+            this.btnEmp.Image = ((System.Drawing.Image)(resources.GetObject("btnEmp.Image")));
             this.btnEmp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmp.Location = new System.Drawing.Point(0, 202);
             this.btnEmp.Name = "btnEmp";
@@ -294,6 +298,7 @@
             this.btnRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecipe.Font = new System.Drawing.Font("Montserrat", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecipe.ForeColor = System.Drawing.Color.Silver;
+            this.btnRecipe.Image = ((System.Drawing.Image)(resources.GetObject("btnRecipe.Image")));
             this.btnRecipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecipe.Location = new System.Drawing.Point(0, 67);
             this.btnRecipe.Name = "btnRecipe";
@@ -341,7 +346,7 @@
             // 
             // panelChildForm
             // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
