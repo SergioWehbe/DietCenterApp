@@ -95,6 +95,12 @@
     <Compile Include="UserControls\Dietitian\Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Dietitian\EditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dietitian\EditClient.Designer.cs">
+      <DependentUpon>EditClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Manager\AddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Dietitian\Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Dietitian\EditClient.resx">
+      <DependentUpon>EditClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Manager\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
