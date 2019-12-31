@@ -169,6 +169,10 @@ namespace DietCenterApp.UserControls.Manager
             {
                 MessageBox.Show("Could not connect to server, check your internet connection");
             }
+            else if (ex.Message.Contains("The remote server returned an error: (500) Internal Server Error."))
+            {
+                MessageBox.Show("A user with this email already exists");
+            }
             else
             {
                 MessageBox.Show(ex.Message, "Error");
