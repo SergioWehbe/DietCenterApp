@@ -13,21 +13,26 @@ namespace DietCenterApp.UserControls.Chef
 {
     public partial class AddRecipe : Form
     {
-
-        //Event handlers
-        public event EventHandler CanceledRecipe, AddedRecipe;
-        public AddRecipe()
+        //Class variables
+        Dashboard parent;
+        
+        public AddRecipe(Dashboard parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                //Check if Name is empty
-                if (tbName.Text == "")
+                //Remove white spaces from beginning and end of the Text of the fields
+                TrimFieldsTexts();
+
+                //Check if Input is Valid
+                string[] invalid = InvalidInput();
+                if (invalid != null)
                 {
-                    MessageBox.Show("Please insert a name for the recipe", "Name is empty");
+                    MessageBox.Show(invalid[0], invalid[1]);
                     return;
                 }
 
@@ -35,21 +40,24 @@ namespace DietCenterApp.UserControls.Chef
                 Recipe recipe = new Recipe()
                 {
                     name = tbName.Text,
-                    description = tbDecription.Text,
+                    description = tbDescription.Text,
                     price = tbPrice.Text,
                     image = pbRecipe.Image == null ? "" : Conversion.ImageToBase64((Image)pbRecipe.Image.Clone())
                 };
 
                 //Insert new recipe into Database
                 //If user Unauthorized, show Message
-                if (RepoRecipe.AddRecipe(recipe).Contains("Unauthorized"))
+                if (!RepoRecipe.AddRecipe(recipe).Contains("{\"name\""))
                 {
-                    MessageBox.Show("You are Unauthorized to change the recipe");
+                    MessageBox.Show("You are Unauthorized to add recipes");
                     return;
                 }
 
-                //Trigger add recipe event
-                AddedRecipe?.Invoke(this, EventArgs.Empty);
+                //Tell Dashboard about the recipe that was added
+                parent.AddRecipe_AddedRecipe(recipe);
+
+                //Clear All fields
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -61,8 +69,11 @@ namespace DietCenterApp.UserControls.Chef
         {
             try
             {
-                //Trigger cancel recipe event
-                CanceledRecipe?.Invoke(this, EventArgs.Empty);
+                //Tell Dashboard that AddRecipe canceled
+                parent.AddRecipe_CanceledRecipe();
+
+                //Clear All fields
+                ClearFields();
             }
             catch (Exception ex)
             {
@@ -107,6 +118,41 @@ namespace DietCenterApp.UserControls.Chef
             pbRecipe.Image = null;
         }
 
+        private string[] InvalidInput()
+        {
+            //Check if Name is empty
+            if (tbName.Text == "") return new string[] { "Please insert a name for the employee", "Name is empty" };
+
+            //Check if email contains spaces
+            if (tbPrice.Text.Contains(" ")) return new string[] { "Please insert a price for the employee", "Price is empty" };
+
+            return null;
+        }
+
+        private void TrimFieldsTexts()
+        {
+            tbName.Text = tbName.Text.Trim();
+            tbPrice.Text = tbPrice.Text.Trim();
+            tbDescription.Text = tbDescription.Text.Trim();
+        }
+
+        private void ClearFields()
+        {
+            foreach (var field in Controls)
+            {
+                if (field is TextBox)
+                {
+                    var field2 = field as TextBox;
+                    field2.Clear();
+                }
+                else if (field is PictureBox)
+                {
+                    var pb = field as PictureBox;
+                    pb.Image = null;
+                }
+            }
+        }
+
 
         //Function to handle the Exception in one place instead of handling each function's exceptions
         private void ExceptionHandling(Exception ex)
@@ -120,7 +166,5 @@ namespace DietCenterApp.UserControls.Chef
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-
-
     }
 }
