@@ -14,5 +14,11 @@ namespace DietCenterApp
         public static string TokenType { get; set; }
         public static string ExpiresIn { get; set; }
         public static List<string> Roles = new List<string>();
+
+        public static void ClearAllFields()
+        {
+            AccessToken = RefreshToken = TokenType = ExpiresIn = null;
+            Roles = new List<string>();
+        }
     }
 }

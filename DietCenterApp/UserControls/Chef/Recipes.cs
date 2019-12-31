@@ -14,14 +14,16 @@ namespace DietCenterApp.UserControls.Chef
     public partial class Recipes : Form
     {
         //Class variables
+        Dashboard parent;
         EditRecipe editRecipe;
         RecipeGroup jsonObject;
         List<Recipe> recipes;
         DataTable recipesDT;
         int SelectedRowIndex;
 
-        public Recipes()
+        public Recipes(Dashboard parent)
         {
+            this.parent = parent;
             InitializeComponent();
             GetRecipes();
             InitializeEditRecipe();
@@ -111,7 +113,7 @@ namespace DietCenterApp.UserControls.Chef
             //Set all data to selected recipe
             editRecipe.SelectedRowID = SelectedRowIndex;
             editRecipe.tbName.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value.ToString();
-            editRecipe.tbDecription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
+            editRecipe.tbDescription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
             editRecipe.tbPrice.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value.ToString();
             editRecipe.base64Image = dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value.ToString();
             editRecipe.pbRecipe.Image = editRecipe.base64Image == "" ? null : Conversion.Base64ToImage(editRecipe.base64Image);
@@ -151,7 +153,7 @@ namespace DietCenterApp.UserControls.Chef
             {
                 //Update recipe in dgvRecipes
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value = editRecipe.tbName.Text;
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = editRecipe.tbDecription.Text;
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = editRecipe.tbDescription.Text;
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value = editRecipe.tbPrice.Text;
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value = editRecipe.base64Image;
             }
@@ -162,11 +164,10 @@ namespace DietCenterApp.UserControls.Chef
         }
 
         //Event Added Recipe
-        private void AddRecipe_AddedRecipe(object sender, EventArgs e)
+        public void AddRecipe_AddedRecipe(Recipe recipe)
         {
             try
             {
-                //Refresh Recipes Grid
                 GetRecipes();
             }
             catch (Exception ex)
@@ -174,6 +175,35 @@ namespace DietCenterApp.UserControls.Chef
                 ExceptionHandling(ex);
             }
         }
+
+        //Delete Recipe
+        private void dgvRecipes_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            try
+            {
+                //Show Message box to confirm the deletion of the selected recipes
+                if (MessageBox.Show("Are you sure you want to delete the selected recipes?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    //If deletion is canceled, exit function
+                    e.Cancel = true;
+                    return;
+                }
+
+                //Delete each selected recipe
+                foreach (DataGridViewRow row in dgvRecipes.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        RepoRecipe.DeleteRecipe(Int16.Parse(row.Cells["id"].Value.ToString()));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex);
+            }
+        }
+
 
         //Function to handle the Exception in one place instead of handling each function's exceptions
         private void ExceptionHandling(Exception ex)
@@ -185,6 +215,10 @@ namespace DietCenterApp.UserControls.Chef
             else if (ex.Message.Contains("The request was aborted: The connection was closed unexpectedly."))
             {
                 MessageBox.Show("Could not connect to Database on the server, please contact your Administrator", "Error");
+            }
+            else if (ex.Message.Contains("Error converting value {null} to type 'System.Int32'. Path 'meta.from', line 1, position 182."))
+            {
+                MessageBox.Show("There are no recipes");
             }
             else
             {
