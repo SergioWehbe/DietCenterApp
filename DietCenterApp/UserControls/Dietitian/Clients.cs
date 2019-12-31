@@ -213,7 +213,7 @@ namespace DietCenterApp.UserControls.Dietitian
             {
                 MessageBox.Show("Could not connect to Database on the server, please contact your Administrator", "Error");
             }
-            else if (ex.Message.Contains("Error converting value {null} to type 'System.Int32'. Path 'meta.from', line 1, position 182."))
+            else if (ex.Message.Contains("Error converting value {null} to"))
             {
                 MessageBox.Show("There are no clients");
             }
