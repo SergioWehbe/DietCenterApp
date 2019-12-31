@@ -16,8 +16,8 @@ namespace DietCenterApp.UserControls.Dietitian
         //Class Variables
         Dashboard parent;
         EditClient editClient;
-        RecipeGroup jsonObject;
-        List<Recipe> recipes;
+        ClientGroup clientGroup;
+        List<Client> clients;
         DataTable clientsDT;
         int SelectedRowIndex;
 
@@ -25,6 +25,8 @@ namespace DietCenterApp.UserControls.Dietitian
         {
             this.parent = parent;
             InitializeComponent();
+            GetClients();
+            InitializeEditClient();
         }
         private void InitializeEditClient()
         {
@@ -37,22 +39,21 @@ namespace DietCenterApp.UserControls.Dietitian
             editClient.Show();
         }
 
-        private void GetRecipes()
+        private void GetClients()
         {
             try
             {
                 //Get JsonObject from Api
-                jsonObject = RepoClient.GetAllClients();
+                clientGroup = RepoClient.GetAlllCients();
 
-                //Save Recipes
-                recipes = jsonObject.data;
+                //Save Clients
+                clients = clientGroup.data;
 
-                //Convert List recipes to DataTable
-                dgvRecipes.DataSource = clientsDT = RecipeGroup.ConvertDataIntoDataTable(recipes);
+                //Convert List clients to DataTable
+                dgvClients.DataSource = clientsDT = ClientGroup.ConvertDataIntoDataTable(clients);
 
                 //Set id column visibility false
-                dgvRecipes.Columns["id"].Visible = false;
-                dgvRecipes.Columns["image"].Visible = false;
+                dgvClients.Columns["id"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -65,19 +66,19 @@ namespace DietCenterApp.UserControls.Dietitian
             try
             {
                 //Check if jsonObject is not null
-                if (jsonObject.links.next == null) return;
+                if (clientGroup.links.next == null) return;
 
                 //Get JsonObject from Api
-                jsonObject = RepoClient.GetAllClientsNextPage();
+                clientGroup = RepoClient.GetAllClientsNextPage();
 
-                //Convert List recipes in jsonObject to DataTable
-                DataTable newRecipes = RecipeGroup.ConvertDataIntoDataTable(jsonObject.data);
+                //Convert List clients in jsonObject to DataTable
+                DataTable newClients = ClientGroup.ConvertDataIntoDataTable(clientGroup.data);
 
-                //Add new recipes to DataTable
-                clientsDT.Merge(newRecipes);
+                //Add new clients to DataTable
+                clientsDT.Merge(newClients);
 
                 //Set new DataTable as Data Grid View DataSource
-                dgvRecipes.DataSource = clientsDT;
+                dgvClients.DataSource = clientsDT;
             }
             catch (Exception ex)
             {
@@ -85,7 +86,7 @@ namespace DietCenterApp.UserControls.Dietitian
             }
         }
 
-        private void dgvRecipes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -95,8 +96,8 @@ namespace DietCenterApp.UserControls.Dietitian
                 //Set SelectedRowIndex's values
                 SelectedRowIndex = e.RowIndex;
 
-                //Load the selected recipe
-                LoadSelectedRecipe();
+                //Load the selected client
+                LoadSelectedClient();
             }
             catch (Exception ex)
             {
@@ -104,32 +105,35 @@ namespace DietCenterApp.UserControls.Dietitian
             }
         }
 
-        //Load the selected recipe
-        private void LoadSelectedRecipe()
+        //Load the selected client
+        private void LoadSelectedClient()
         {
-            //Set all data to selected recipe
-            editClient.SelectedRowID = SelectedRowIndex;
-            editClient.tbName.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value.ToString();
-            editClient.tbDecription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
-            editClient.tbPrice.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value.ToString();
+            //Clear EditClient fields
+            editClient.ClearFields();
+
+            //Set all data to selected client
+            editClient.SelectedRowID = dgvClients.Rows[SelectedRowIndex].Cells["id"].Value.ToString();
+            editClient.tbName.Text = dgvClients.Rows[SelectedRowIndex].Cells["Name"].Value.ToString();
+            editClient.tbEmail.Text = dgvClients.Rows[SelectedRowIndex].Cells["Email"].Value.ToString();
+            editClient.tbPhoneNumber.Text = dgvClients.Rows[SelectedRowIndex].Cells["Phone Number"].Value.ToString();
 
             //Bring ucEdit to front
             panel1.Show();
         }
 
-        private void tbRecipeSearch_TextChanged(object sender, EventArgs e)
+        private void tbClientSearch_TextChanged(object sender, EventArgs e)
         {
             DataTable searchedDT;
             try
             {
-                if (tbRecipeSearch.Text == "")
+                if (tbClientSearch.Text == "")
                 {
-                    //If Empty search box, DataSource = All Recipes
-                    dgvRecipes.DataSource = clientsDT;
+                    //If Empty search box, DataSource = All Clients
+                    dgvClients.DataSource = clientsDT;
                     return;
                 }
 
-                searchedDT = clientsDT.Select("Recipe LIKE '%" + tbRecipeSearch.Text + "%'").CopyToDataTable();
+                searchedDT = clientsDT.Select("Name LIKE '%" + tbClientSearch.Text + "%'").CopyToDataTable();
             }
             catch (Exception)
             {
@@ -138,31 +142,30 @@ namespace DietCenterApp.UserControls.Dietitian
                 searchedDT.Clear();
             }
 
-            dgvRecipes.DataSource = searchedDT;
+            dgvClients.DataSource = searchedDT;
         }
 
-        //Event Saved Recipe
-        public void EditClient_SavedRecipe()
+        //Event Saved Client
+        public void EditClient_SavedClient()
         {
             try
             {
-                //Update recipe in dgvRecipes
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value = editClient.tbName.Text;
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = editClient.tbDecription.Text;
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value = editClient.tbPrice.Text;
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value = editClient.base64Image;
+                //Update client in dgvClients
+                dgvClients.Rows[SelectedRowIndex].Cells["Name"].Value = editClient.tbName.Text;
+                dgvClients.Rows[SelectedRowIndex].Cells["Email"].Value = editClient.tbEmail.Text;
+                dgvClients.Rows[SelectedRowIndex].Cells["Phone Number"].Value = editClient.tbPhoneNumber.Text;
             }
             catch (Exception ex)
             {
                 ExceptionHandling(ex);
             }
         }
-        //Event Added Recipe
-        public void AddClient_AddedClient(User user)
+        //Event Added Client
+        public void AddClient_AddedClient(Client client)
         {
             try
             {
-                GetRecipes();
+                GetClients();
             }
             catch (Exception ex)
             {
@@ -170,25 +173,25 @@ namespace DietCenterApp.UserControls.Dietitian
             }
         }
 
-        //Delete Recipe
-        private void dgvRecipes_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        //Delete Client
+        private void dgvClients_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             try
             {
-                //Show Message box to confirm the deletion of the selected recipes
-                if (MessageBox.Show("Are you sure you want to delete the selected recipes?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
+                //Show Message box to confirm the deletion of the selected clients
+                if (MessageBox.Show("Are you sure you want to delete the selected clients?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
                 {
                     //If deletion is canceled, exit function
                     e.Cancel = true;
                     return;
                 }
 
-                //Delete each selected recipe
-                foreach (DataGridViewRow row in dgvRecipes.SelectedRows)
+                //Delete each selected client
+                foreach (DataGridViewRow row in dgvClients.SelectedRows)
                 {
                     if (!row.IsNewRow)
                     {
-                        RepoClient.DeleteRecipe(Int16.Parse(row.Cells["id"].Value.ToString()));
+                        RepoClient.DeleteClient(row.Cells["id"].Value.ToString());
                     }
                 }
             }
@@ -209,6 +212,10 @@ namespace DietCenterApp.UserControls.Dietitian
             else if (ex.Message.Contains("The request was aborted: The connection was closed unexpectedly."))
             {
                 MessageBox.Show("Could not connect to Database on the server, please contact your Administrator", "Error");
+            }
+            else if (ex.Message.Contains("Error converting value {null} to type 'System.Int32'. Path 'meta.from', line 1, position 182."))
+            {
+                MessageBox.Show("There are no clients");
             }
             else
             {

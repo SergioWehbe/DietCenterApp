@@ -28,10 +28,14 @@ namespace DietCenterApp.UserControls.Chef
         {
             try
             {
-                //Check if Name is empty
-                if (tbName.Text == "")
+                //Remove white spaces from beginning and end of the Text of the fields
+                TrimFieldsTexts();
+
+                //Check if Input is Valid
+                string[] invalid = InvalidInput();
+                if (invalid != null)
                 {
-                    MessageBox.Show("Please insert a name for the recipe", "Name is empty");
+                    MessageBox.Show(invalid[0], invalid[1]);
                     return;
                 }
 
@@ -40,7 +44,7 @@ namespace DietCenterApp.UserControls.Chef
                 {
                     id = SelectedRowID,
                     name = tbName.Text,
-                    description = tbDecription.Text,
+                    description = tbDescription.Text,
                     price = tbPrice.Text,
                     image = base64Image = pbRecipe.Image == null ? "" : Conversion.ImageToBase64((Image)pbRecipe.Image.Clone())
                 };
@@ -113,6 +117,24 @@ namespace DietCenterApp.UserControls.Chef
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             pbRecipe.Image = null;
+        }
+
+        private string[] InvalidInput()
+        {
+            //Check if Name is empty
+            if (tbName.Text == "") return new string[] { "Please insert a name for the employee", "Name is empty" };
+
+            //Check if email contains spaces
+            if (tbPrice.Text.Contains(" ")) return new string[] { "Please insert a price for the employee", "Price is empty" };
+
+            return null;
+        }
+
+        private void TrimFieldsTexts()
+        {
+            tbName.Text = tbName.Text.Trim();
+            tbPrice.Text = tbPrice.Text.Trim();
+            tbDescription.Text = tbDescription.Text.Trim();
         }
 
         //Function to handle the Exception in one place instead of handling each function's exceptions

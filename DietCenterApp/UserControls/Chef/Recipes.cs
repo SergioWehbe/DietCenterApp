@@ -113,7 +113,7 @@ namespace DietCenterApp.UserControls.Chef
             //Set all data to selected recipe
             editRecipe.SelectedRowID = SelectedRowIndex;
             editRecipe.tbName.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value.ToString();
-            editRecipe.tbDecription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
+            editRecipe.tbDescription.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value.ToString();
             editRecipe.tbPrice.Text = dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value.ToString();
             editRecipe.base64Image = dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value.ToString();
             editRecipe.pbRecipe.Image = editRecipe.base64Image == "" ? null : Conversion.Base64ToImage(editRecipe.base64Image);
@@ -153,7 +153,7 @@ namespace DietCenterApp.UserControls.Chef
             {
                 //Update recipe in dgvRecipes
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Recipe"].Value = editRecipe.tbName.Text;
-                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = editRecipe.tbDecription.Text;
+                dgvRecipes.Rows[SelectedRowIndex].Cells["Description"].Value = editRecipe.tbDescription.Text;
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Price"].Value = editRecipe.tbPrice.Text;
                 dgvRecipes.Rows[SelectedRowIndex].Cells["Image"].Value = editRecipe.base64Image;
             }
@@ -215,6 +215,10 @@ namespace DietCenterApp.UserControls.Chef
             else if (ex.Message.Contains("The request was aborted: The connection was closed unexpectedly."))
             {
                 MessageBox.Show("Could not connect to Database on the server, please contact your Administrator", "Error");
+            }
+            else if (ex.Message.Contains("Error converting value {null} to type 'System.Int32'. Path 'meta.from', line 1, position 182."))
+            {
+                MessageBox.Show("There are no recipes");
             }
             else
             {

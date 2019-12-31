@@ -37,7 +37,7 @@
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.tbDecription = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnChangeImage = new System.Windows.Forms.Button();
             this.btnRemoveImage = new System.Windows.Forms.Button();
@@ -150,17 +150,17 @@
             // 
             // tbDecription
             // 
-            this.tbDecription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbDecription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.tbDecription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDecription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDecription.ForeColor = System.Drawing.Color.White;
-            this.tbDecription.Location = new System.Drawing.Point(278, 297);
-            this.tbDecription.Margin = new System.Windows.Forms.Padding(4);
-            this.tbDecription.Multiline = true;
-            this.tbDecription.Name = "tbDecription";
-            this.tbDecription.Size = new System.Drawing.Size(374, 170);
-            this.tbDecription.TabIndex = 60;
+            this.tbDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescription.ForeColor = System.Drawing.Color.White;
+            this.tbDescription.Location = new System.Drawing.Point(278, 297);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDecription";
+            this.tbDescription.Size = new System.Drawing.Size(374, 170);
+            this.tbDescription.TabIndex = 60;
             // 
             // label1
             // 
@@ -266,7 +266,7 @@
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.tbDecription);
+            this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnChangeImage);
             this.Controls.Add(this.btnRemoveImage);
@@ -290,7 +290,7 @@
         public System.Windows.Forms.TextBox tbPrice;
         public System.Windows.Forms.TextBox tbName;
         public System.Windows.Forms.Label lblName;
-        public System.Windows.Forms.TextBox tbDecription;
+        public System.Windows.Forms.TextBox tbDescription;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btnChangeImage;
         public System.Windows.Forms.Button btnRemoveImage;

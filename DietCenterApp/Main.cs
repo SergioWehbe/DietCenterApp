@@ -2,26 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
+using static DietCenterApp.Employee;
+using static DietCenterApp.Repositories.RepoLogin;
 
 namespace DietCenterApp
 {
     public partial class Main : Form
     {
-        
+        //Variables
+        Dashboard dashboard;
+
         public Main()
         {
             InitializeComponent();
-            tbUsername.Text = "rbeahan@example.org";
+            tbUsername.Text = "sergiowehbe@gmail.com";
             tbPassword.Text = "secret";
         }
 
-
+        //Login on Enter in tbUsername
         private void tbUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r') btnLogin.PerformClick();
         }
 
+        //Login on Enter in tbPassword
         private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r') btnLogin.PerformClick();
@@ -44,14 +48,18 @@ namespace DietCenterApp
                 UserSession.RefreshToken = tokenGroup.refresh_token;
                 UserSession.TokenType = tokenGroup.token_type;
                 UserSession.ExpiresIn = tokenGroup.expires_in;
-                UserSession.Roles.Add("Chef");
-                //UserSession.Roles.Add("Manager");
-                //UserSession.Roles.Add("Dietician");'
+
+                //Get Roles and save them in UserSession
+                RolesData roles = RepoLogin.GetRoles();
+                foreach (var role in roles.data)
+                {
+                    UserSession.Roles.Add(role.name);
+                }
 
                 //Tell Main Form that it's a valid login
                 try
                 {
-                    Dashboard dashboard = new Dashboard();
+                    dashboard = new Dashboard(this);
                     dashboard.Closed += (s, args) => this.Close();
                     dashboard.Show();
                     this.Hide();
@@ -65,6 +73,18 @@ namespace DietCenterApp
             {
                 ExceptionHandling(ex);
             }
+        }
+
+        public void LoggedOut()
+        {
+            //Clear UserSession
+            UserSession.ClearAllFields();
+
+            //Release all resources on dashboard
+            dashboard.Dispose();
+
+            //Show Main form (Login)
+            this.Show();
         }
 
         //Function to handle the Exception in one place instead of handling each function's exceptions

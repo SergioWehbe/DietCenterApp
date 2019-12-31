@@ -5,78 +5,72 @@ namespace DietCenterApp.Repositories
 {
     static class RepoClient
     {
-        static UserGroup jsonObject;
+        static ClientGroup jsonObject;
 
         /// <summary>
-        /// Return first page of users
+        /// Return first page of clients
         /// </summary>
-        /// <returns>UserGroup</returns>
-        public static UserGroup GetAllUsers()
+        /// <returns>ClientGroup</returns>
+        public static ClientGroup GetAlllCients()
         {
-            return jsonObject = JsonConvert.DeserializeObject<UserGroup>(HttpRequests.Get("users"));
+            return jsonObject = JsonConvert.DeserializeObject<ClientGroup>(HttpRequests.Get("clients"));
         }
 
         /// <summary>
-        /// Return next page of users
+        /// Return next page of clients
         /// </summary>
-        /// <returns>UserGroup</returns>
-        public static UserGroup GetAllUsersNextPage()
+        /// <returns>ClientGroup</returns>
+        public static ClientGroup GetAllClientsNextPage()
         {
-            return jsonObject = JsonConvert.DeserializeObject<UserGroup>(HttpRequests.Get(jsonObject.links.next, true));
+            return jsonObject = JsonConvert.DeserializeObject<ClientGroup>(HttpRequests.Get(jsonObject.links.next, true));
         }
 
         /// <summary>
-        /// Add a User to Database
+        /// Add a Client to Database
         /// </summary>
-        /// <param name="user">User to Add</param>
+        /// <param name="client">Client to Add</param>
         /// <returns>Response from the server</returns>
-        public static string AddUser(User user)
+        public static string AddClient(Client client)
         {
             //Return Response
-            return HttpRequests.Send("user", UsertoDictionary(user), "Post");
+            return HttpRequests.Send("client", ClienttoDictionary(client), "Post");
         }
 
         /// <summary>
-        /// Update a User in the Database
+        /// Update a Client in the Database
         /// </summary>
-        /// <param name="user">User to Update</param>
+        /// <param name="client">Client to Update</param>
         /// <returns>Response from the server</returns>
-        public static string UpdateUser(User user)
+        public static string UpdateClient(Client client)
         {
             //Return Response
-            return HttpRequests.Send("user/" + user.id, UsertoDictionary(user), "Patch");
+            return HttpRequests.Send("client/" + client.id, ClienttoDictionary(client), "Patch");
         }
 
         /// <summary>
-        /// Delete a User from the database
+        /// Delete a Client from the database
         /// </summary>
-        /// <param name="user">User to be Deleted</param>
+        /// <param name="client">Client to be Deleted</param>
         /// <returns>Response from the server</returns>
-        public static string DeleteUser(int userID)
+        public static string DeleteClient(string clientID)
         {
             //Return Response
-            return HttpRequests.Send("user/" + userID, new Dictionary<string, string>() , "Delete");
+            return HttpRequests.Send("client/" + clientID, new Dictionary<string, string>() , "Delete");
         }
 
         /// <summary>
-        /// Converts the User object into Dictionary string,string
+        /// Converts the Client object into Dictionary string,string
         /// </summary>
-        /// <param name="user">User to be converted</param>
-        /// <returns>User converted to Dictionary string,string</returns>
-        private static Dictionary<string, string> UsertoDictionary(User user)
+        /// <param name="client">Client to be converted</param>
+        /// <returns>Client converted to Dictionary string,string</returns>
+        private static Dictionary<string, string> ClienttoDictionary(Client client)
         {
-            //Fill Disctionary with user values to send them to Post function
+            //Fill Disctionary with client values to send them to Post function
             Dictionary<string, string> variables = new Dictionary<string, string>();
-            variables.Add("name", user.name);
-            variables.Add("email", user.email);
-            variables.Add("password", user.password);
-            variables.Add("phoneNumber", user.phoneNumber);
-
-            //Add roles this way because it is an array
-            foreach (var item in user.Roles)
-            {
-                variables.Add("roles[]", item);
-            }
+            variables.Add("name", client.name);
+            variables.Add("email", client.email);
+            variables.Add("password", client.password);
+            variables.Add("phonenumber", client.phoneNumber);
 
             //Return Dictionary
             return variables;

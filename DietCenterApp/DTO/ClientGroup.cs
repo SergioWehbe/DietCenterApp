@@ -3,9 +3,9 @@ using System.Data;
 
 namespace DietCenterApp
 {
-    public class UserGroup
+    public class ClientGroup
     {
-        public List<User> data;
+        public List<Client> data;
         public Links links;
         public Meta meta;
 
@@ -28,7 +28,7 @@ namespace DietCenterApp
             public int total;
         }
 
-        public static DataTable ConvertDataIntoDataTable(List<User> users)
+        public static DataTable ConvertDataIntoDataTable(List<Client> clients)
         {
             DataTable output = new DataTable();
 
@@ -38,14 +38,14 @@ namespace DietCenterApp
             output.Columns.Add("Email", typeof(string));
             output.Columns.Add("Phone Number", typeof(string));
 
-            //Fill data table rows with users values
-            foreach (var user in users)
+            //Fill data table rows with clients values
+            foreach (var client in clients)
             {
                 object[] values = new object[4];
-                values[0] = user.id;
-                values[1] = user.name;
-                values[2] = user.email;
-                values[3] = user.phoneNumber;
+                values[0] = client.id;
+                values[1] = client.name;
+                values[2] = client.email;
+                values[3] = client.phoneNumber;
                 output.Rows.Add(values);
             }
 

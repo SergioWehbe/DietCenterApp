@@ -56,10 +56,14 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTO\UserGroup.cs" />
+    <Compile Include="DTO\Employee.cs" />
+    <Compile Include="DTO\Client.cs" />
+    <Compile Include="DTO\EmployeeGroup.cs" />
+    <Compile Include="DTO\ClientGroup.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="DTO\TokenGroup.cs" />
     <Compile Include="DTO\Recipe.cs" />
+    <Compile Include="Repositories\RepoEmployee.cs" />
     <Compile Include="Repositories\RepoLogin.cs" />
     <Compile Include="Repositories\RepoClient.cs" />
     <Compile Include="UserControls\Chef\AddRecipe.cs">

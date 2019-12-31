@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DietCenterApp
 {
@@ -17,6 +18,10 @@ namespace DietCenterApp
             //Create HttpWebRequest with given api
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(fullURL? api : @API_BASE+api);
 
+            //Headers
+            request.Accept = "application/json";
+            request.Headers.Add("Authorization", UserSession.TokenType + " " + UserSession.AccessToken);
+
             //Get Response
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
@@ -27,7 +32,10 @@ namespace DietCenterApp
         public static string Send(string api, Dictionary<string,string> variables, string requestMethod, bool fullURL = false)
         {
             //Create HttpWebRequest with given api
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(fullURL? api : @API_BASE+api);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(fullURL ? api : @API_BASE + api);
+
+            //Headers
+            request.Accept = "application/json";
             request.Headers.Add("Authorization", UserSession.TokenType + " " + UserSession.AccessToken);
 
             //Fill postData of the Request
@@ -37,7 +45,7 @@ namespace DietCenterApp
                 postData += "&" + item.Key + "=" + UriEscapeDataString(item.Value);
             }
             //Remove first "&"
-            postData = postData.Length>0? postData.Substring(1) : "";
+            postData = postData.Length > 0 ? postData.Substring(1) : "";
             //Encode postData string as bytes
             var data = Encoding.ASCII.GetBytes(postData);
 

@@ -25,10 +25,14 @@ namespace DietCenterApp.UserControls.Chef
         {
             try
             {
-                //Check if Name is empty
-                if (tbName.Text == "")
+                //Remove white spaces from beginning and end of the Text of the fields
+                TrimFieldsTexts();
+
+                //Check if Input is Valid
+                string[] invalid = InvalidInput();
+                if (invalid != null)
                 {
-                    MessageBox.Show("Please insert a name for the recipe", "Name is empty");
+                    MessageBox.Show(invalid[0], invalid[1]);
                     return;
                 }
 
@@ -36,16 +40,16 @@ namespace DietCenterApp.UserControls.Chef
                 Recipe recipe = new Recipe()
                 {
                     name = tbName.Text,
-                    description = tbDecription.Text,
+                    description = tbDescription.Text,
                     price = tbPrice.Text,
                     image = pbRecipe.Image == null ? "" : Conversion.ImageToBase64((Image)pbRecipe.Image.Clone())
                 };
 
                 //Insert new recipe into Database
                 //If user Unauthorized, show Message
-                if (RepoRecipe.AddRecipe(recipe).Contains("Unauthorized"))
+                if (!RepoRecipe.AddRecipe(recipe).Contains("{\"name\""))
                 {
-                    MessageBox.Show("You are Unauthorized to change the recipe");
+                    MessageBox.Show("You are Unauthorized to add recipes");
                     return;
                 }
 
@@ -114,6 +118,24 @@ namespace DietCenterApp.UserControls.Chef
             pbRecipe.Image = null;
         }
 
+        private string[] InvalidInput()
+        {
+            //Check if Name is empty
+            if (tbName.Text == "") return new string[] { "Please insert a name for the employee", "Name is empty" };
+
+            //Check if email contains spaces
+            if (tbPrice.Text.Contains(" ")) return new string[] { "Please insert a price for the employee", "Price is empty" };
+
+            return null;
+        }
+
+        private void TrimFieldsTexts()
+        {
+            tbName.Text = tbName.Text.Trim();
+            tbPrice.Text = tbPrice.Text.Trim();
+            tbDescription.Text = tbDescription.Text.Trim();
+        }
+
         private void ClearFields()
         {
             foreach (var field in Controls)
@@ -144,7 +166,5 @@ namespace DietCenterApp.UserControls.Chef
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-
-
     }
 }
