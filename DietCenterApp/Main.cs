@@ -49,11 +49,20 @@ namespace DietCenterApp
                 UserSession.TokenType = tokenGroup.token_type;
                 UserSession.ExpiresIn = tokenGroup.expires_in;
 
-                //Get Roles and save them in UserSession
+                //Get Roles and save them in UserSession and check if User authorized
                 RolesData roles = RepoLogin.GetRoles();
+                bool authorized = false;
                 foreach (var role in roles.data)
                 {
                     UserSession.Roles.Add(role.name);
+                    if (role.id > 1) authorized = true;
+                }
+
+                if (!authorized)
+                {
+                    UserSession.ClearAllFields();
+                    MessageBox.Show("Unauthorized");
+                    return;
                 }
 
                 //Tell Main Form that it's a valid login
