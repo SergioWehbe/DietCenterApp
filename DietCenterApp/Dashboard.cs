@@ -80,14 +80,14 @@ namespace DietCenterApp
             if (recipes == null) recipes = new Recipes(this);
             openChildForm(recipes);
             recipes.panel1.Hide();
-            hideSubMenu();
+           
         }
 
         private void btnAddRecipe_Click(object sender, EventArgs e)
         {
             if (addRecipe == null) addRecipe = new AddRecipe(this);
             openChildForm(addRecipe);
-            hideSubMenu();
+            
         }
       
 
@@ -103,14 +103,14 @@ namespace DietCenterApp
             if (employees == null) employees = new Employees(this);
             openChildForm(employees);
             //employees.panel1.Hide();
-            hideSubMenu();
+            
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             if (addEmployee == null) addEmployee = new AddEmployee(this);
             openChildForm(addEmployee);
-            hideSubMenu();
+           
         }
 
 
@@ -126,14 +126,14 @@ namespace DietCenterApp
             if (clients == null) clients = new Clients(this);
             openChildForm(clients);
             clients.panel1.Hide();
-            hideSubMenu();
+            
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             if (addClient == null) addClient = new AddClient(this);
             openChildForm(addClient);
-            hideSubMenu();
+          
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
